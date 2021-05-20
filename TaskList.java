@@ -17,11 +17,38 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Add a new task to tasks
+     * Add a new task to tasks.
+     * If successful, return true.
+     * Otherwise return false.
      */
-    public void addTask(Task t) {
-        tasks.add(t);
-        numOfOpen++;
+    public boolean addTask(Task t) {
+        boolean status = false;
+
+        // if numOfOpen is 0 or there is no other task in the list that has its title
+        if(numOfOpen == 0 || taskIsValid(t.getTitle())) {   // valid
+            tasks.add(t);
+            numOfOpen++;
+            status = true;
+        }
+
+        return status;
+    }
+
+    /**
+     * Checks if there is no task (open or closed) currently in the list with this taskTitle.
+     * Returns true if so, false otherwise.
+     */
+    public boolean taskIsValid(String taskTitle) {
+        boolean status = true;
+
+        for(int i = 0; i < tasks.size(); i++) {
+            if(tasks.get(i).getTitle().equalsIgnoreCase(taskTitle)) {
+                status = false;
+                break;
+            }
+        }
+
+        return status;
     }
 
     /**
