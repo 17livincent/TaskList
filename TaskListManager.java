@@ -3,14 +3,6 @@
  * 
  * @author Vincent Li <li.vincent0@gmail.com>
  * Interacts with a TaskList object
- * 
- * Features:
- *      Create lists and tasks
- *      Each task has a title, details, deadline, open/closed, and creation date
- *      Tasks can be edited (title, details, deadline, open/closed)
- *      Open tasks can be reordered
- *      Closed tasks are sorted by most recently closed first
- *      Closed tasks can be reopened
  */
 import java.util.ArrayList;
 import java.io.Serializable;
@@ -39,6 +31,8 @@ public class TaskListManager implements Serializable {
         list2.closeTask(0); // close Task 2
         list2.openTask(2);  // open Task 1
         list2.deleteTask(1);    // delete Task 1
+        list2.addTask(new Task("Task 1"));
+        list2.addTask(new Task("Task 2"));
 
         manager.addList(list2);
         
@@ -52,21 +46,21 @@ public class TaskListManager implements Serializable {
     }
 
     /**
-     * Add a TaskList object to lists
+     * Add a TaskList object to lists.
      */
     public void addList(TaskList list) {
         lists.add(list);
     }
 
     /**
-     * Removes a TaskList from lists with the given index
+     * Removes a TaskList from lists with the given index.
      */
     public void removeList(int index) {
         lists.remove(index);
     }
 
     /**
-     * Serializes the TaskLists
+     * Serializes the TaskLists.
      */
     public void saveLists() {
         try {
@@ -87,7 +81,7 @@ public class TaskListManager implements Serializable {
     }
 
     /**
-     * Deserializes the TaskLists
+     * Deserializes the TaskLists.
      */
     public void readLists() {
         try {
@@ -113,9 +107,9 @@ public class TaskListManager implements Serializable {
     /**
      * Returns a printable string of all task lists and their tasks.
      * Codes:
-     * ALL: 0
-     * OPEN: 1
-     * CLOSED: 2
+     * ALL: 0,
+     * OPEN: 1,
+     * CLOSED: 2.
      */
     public String toString(int code) {
         String allTasks = "";

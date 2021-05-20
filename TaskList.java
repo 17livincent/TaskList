@@ -52,7 +52,7 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Deletes the task at the index
+     * Deletes the task at the index.
      */
     public void deleteTask(int index) {
         if(tasks.get(index).isOpen()) numOfOpen--;
@@ -61,15 +61,15 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Returns the individual task at the index
+     * Returns the individual task at the index.
      */
     public Task getTask(int index) {
         return tasks.get(index);
     }
 
     /**
-     * Edits the title, details, or deadline of a task at the index
-     * Input the original values for parameters that shouldn't be edited
+     * Edits the title, details, or deadline of a task at the index.
+     * Input the original values for parameters that shouldn't be edited.
      */
     public void editTask(int index, String title, String details, Date deadlineDate) {
         tasks.get(index).setTitle(title);
@@ -78,7 +78,7 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Moves the task from index1 to index2
+     * Moves the task from index1 to index2.
      */
     public void moveTask(int index1, int index2) {
         Task task = tasks.get(index1);
@@ -87,7 +87,7 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Close the task at the index
+     * Close the task at the index.
      */
     public void closeTask(int index) {
         tasks.get(index).setClose();
@@ -100,7 +100,7 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Open the task at the index
+     * Open the task at the index.
      */
     public void openTask(int index) {
         tasks.get(index).setOpen();
@@ -121,14 +121,14 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Returns the entire tasks arraylist
+     * Returns the entire tasks arraylist.
      */
     public ArrayList<Task> getAllTasks() {
         return tasks;
     }
 
     /**
-     * Returns an arraylist of the open tasks
+     * Returns an arraylist of the open tasks.
      */
     public ArrayList<Task> getOpenTasks() {
         ArrayList<Task> openTasks = new ArrayList<>(0);
@@ -144,7 +144,7 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Returns an arraylist of the closed tasks
+     * Returns an arraylist of the closed tasks.
      */
     public ArrayList<Task> getClosedTasks() {
         ArrayList<Task> closedTasks = new ArrayList<>(0);
@@ -160,11 +160,11 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Returns a string representation of the task list
-     * code values:
-     * ALL: 0
-     * OPEN: 1
-     * CLOSED: 2
+     * Returns a string representation of the task list.
+     * Code values:
+     * ALL: 0,
+     * OPEN: 1,
+     * CLOSED: 2.
      */
     public String toString(int code) {
         String string = "TASK LIST: " + listName + "\n";
