@@ -26,7 +26,7 @@ public class TaskList implements java.io.Serializable {
 
         // if numOfOpen is 0 or there is no other task in the list that has its title
         if(numOfOpen == 0 || taskIsValid(t.getTitle())) {   // valid
-            tasks.add(t);
+            tasks.add(numOfOpen, t);    // insert after the other open tasks
             numOfOpen++;
             status = true;
         }
