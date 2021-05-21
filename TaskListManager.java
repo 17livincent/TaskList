@@ -27,13 +27,7 @@ public class TaskListManager implements Serializable {
         list2.addTask(new Task("Task 1", "Details of task 1", new Date()));
         list2.addTask(new Task("Task 2", "Details of task 2", null));
         list2.addTask(new Task("Task 3", "Details of task 3", new Date()));
-        list2.closeTask(0); // close Task 1
-        list2.closeTask(0); // close Task 2
-        list2.openTask(2);  // open Task 1
-        list2.deleteTask(1);    // delete Task 1
-        list2.addTask(new Task("Task 1"));
-        list2.addTask(new Task("Task 2"));
-
+        list2.editTask(0, list2.getTask(0).getTitle(), list2.getTask(0).getDetails(), list2.getTask(0).getDeadlineDate(), false);
         manager.addList(list2);
         
         System.out.println(list2.toString(0));

@@ -68,13 +68,23 @@ public class TaskList implements java.io.Serializable {
     }
 
     /**
-     * Edits the title, details, or deadline of a task at the index.
+     * Edits the title, details, deadline, or status of a task at the index.
      * Input the original values for parameters that shouldn't be edited.
      */
-    public void editTask(int index, String title, String details, Date deadlineDate) {
+    public void editTask(int index, String title, String details, Date deadlineDate, boolean open) {
         tasks.get(index).setTitle(title);
         tasks.get(index).setDetails(details);
         tasks.get(index).setDeadlineDate(deadlineDate);
+
+        // if status has been changed, open or close this task
+        if(tasks.get(index).isOpen() != open) {
+            if(open) {
+                openTask(index);
+            }
+            else {
+                closeTask(index);
+            }
+        }
     }
 
     /**
