@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Date;
 
 public class TaskListManager implements Serializable {
-    private ArrayList<TaskList> lists = new ArrayList<>(0);
+    public ArrayList<TaskList> lists = new ArrayList<>(0);
 
     public static final String SERFILE = "tasklists.ser";
     private static final long serialversionUID = 129348938L;
@@ -44,6 +44,15 @@ public class TaskListManager implements Serializable {
      */
     public void addList(TaskList list) {
         lists.add(list);
+    }
+
+    /**
+     * Moves a TaskList from one index in lists to another index
+     */
+    public void moveList(int index1, int index2) {
+        TaskList taskList = lists.get(index1);
+        lists.remove(index1);
+        lists.add(index2, taskList);
     }
 
     /**
